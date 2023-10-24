@@ -910,11 +910,13 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
         Container(
             decoration: borderdecoration.copyWith(
                 gradient: widget.outerGradient,
-                // color: Colors.transparent,
+                color: null,
                 border: Border.all(style: BorderStyle.none)),
-            padding: _pinTheme.fieldOuterPadding,
+            // padding: _pinTheme.fieldOuterPadding,
+            padding: EdgeInsets.all(2),
             child: Container(
-              decoration: borderdecoration.copyWith(
+              decoration: BoxDecoration(
+                borderRadius: borderdecoration.borderRadius,
                 color: Colors.white,
               ),
               child: AnimatedContainer(
@@ -922,7 +924,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 duration: widget.animationDuration,
                 width: _pinTheme.fieldWidth,
                 height: _pinTheme.fieldHeight,
-                decoration: borderdecoration,
+                decoration: borderdecoration.copyWith(color: Color(0x26C4C4C4)),
                 child: Center(
                   child: AnimatedSwitcher(
                     switchInCurve: widget.animationCurve,

@@ -78,7 +78,7 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Constants.primaryColor,
+      backgroundColor: Colors.white,
       body: GestureDetector(
         onTap: () {},
         child: SizedBox(
@@ -148,13 +148,14 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                         Color(0xFF00FFFF)
                       ],
                     ),
+
                     appContext: context,
                     pastedTextStyle: TextStyle(
                       color: Colors.green.shade600,
                       fontWeight: FontWeight.bold,
                     ),
                     length: 6,
-                    obscureText: true,
+                    obscureText: false,
                     obscuringCharacter: '*',
                     obscuringWidget: const FlutterLogo(
                       size: 24,
@@ -169,26 +170,34 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                       }
                     },
                     pinTheme: PinTheme(
-                      fieldOuterPadding: EdgeInsets.all(0.5),
+                      activeColor: Color(0x26C4C4C4),
+                      inactiveColor: Color(0x26C4C4C4),
+                      inactiveFillColor: Color(0x26C4C4C4),
+                      selectedColor: Color(0x26C4C4C4),
+                      selectedFillColor: Color(0x26C4C4C4),
+                      disabledColor: Color(0x26C4C4C4),
+                      errorBorderColor: Color(0x26C4C4C4),
+                      fieldOuterPadding: EdgeInsets.all(0.1),
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(5),
                       fieldHeight: 50,
                       fieldWidth: 40,
-                      activeFillColor: Colors.white,
+                      activeFillColor: Color(0x26C4C4C4),
                     ),
+
                     cursorColor: Colors.black,
                     animationDuration: const Duration(milliseconds: 300),
                     enableActiveFill: true,
                     errorAnimationController: errorController,
                     controller: textEditingController,
                     keyboardType: TextInputType.number,
-                    boxShadows: const [
-                      BoxShadow(
-                        offset: Offset(0, 1),
-                        color: Colors.black12,
-                        blurRadius: 10,
-                      )
-                    ],
+                    // boxShadows: const [
+                    //   BoxShadow(
+                    //     offset: Offset(0, 1),
+                    //     color: Colors.black12,
+                    //     blurRadius: 10,
+                    //   )
+                    // ],
                     onCompleted: (v) {
                       debugPrint("Completed");
                     },
