@@ -913,41 +913,46 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 // color: Colors.transparent,
                 border: Border.all(style: BorderStyle.none)),
             padding: _pinTheme.fieldOuterPadding,
-            child: AnimatedContainer(
-              curve: widget.animationCurve,
-              duration: widget.animationDuration,
-              width: _pinTheme.fieldWidth,
-              height: _pinTheme.fieldHeight,
-              decoration: borderdecoration,
-              child: Center(
-                child: AnimatedSwitcher(
-                  switchInCurve: widget.animationCurve,
-                  switchOutCurve: widget.animationCurve,
-                  duration: widget.animationDuration,
-                  transitionBuilder: (child, animation) {
-                    if (widget.animationType == AnimationType.scale) {
-                      return ScaleTransition(
-                        scale: animation,
-                        child: child,
-                      );
-                    } else if (widget.animationType == AnimationType.fade) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    } else if (widget.animationType == AnimationType.none) {
-                      return child;
-                    } else {
-                      return SlideTransition(
-                        position: Tween<Offset>(
-                          begin: const Offset(0, .5),
-                          end: Offset.zero,
-                        ).animate(animation),
-                        child: child,
-                      );
-                    }
-                  },
-                  child: buildChild(i),
+            child: Container(
+              decoration: borderdecoration.copyWith(
+                color: Colors.white,
+              ),
+              child: AnimatedContainer(
+                curve: widget.animationCurve,
+                duration: widget.animationDuration,
+                width: _pinTheme.fieldWidth,
+                height: _pinTheme.fieldHeight,
+                decoration: borderdecoration,
+                child: Center(
+                  child: AnimatedSwitcher(
+                    switchInCurve: widget.animationCurve,
+                    switchOutCurve: widget.animationCurve,
+                    duration: widget.animationDuration,
+                    transitionBuilder: (child, animation) {
+                      if (widget.animationType == AnimationType.scale) {
+                        return ScaleTransition(
+                          scale: animation,
+                          child: child,
+                        );
+                      } else if (widget.animationType == AnimationType.fade) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      } else if (widget.animationType == AnimationType.none) {
+                        return child;
+                      } else {
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(0, .5),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
+                      }
+                    },
+                    child: buildChild(i),
+                  ),
                 ),
               ),
             )),
