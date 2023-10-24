@@ -915,7 +915,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 borderRadius: borderdecoration.borderRadius,
                 border: Border.all(style: BorderStyle.none)),
             // padding: _pinTheme.fieldOuterPadding,
-            padding: EdgeInsets.all(1),
+            padding: _pinTheme.fieldOuterPadding,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: borderdecoration.borderRadius,
