@@ -108,6 +108,8 @@ class PinCodeTextField extends StatefulWidget {
   final bool enableActiveFill;
   //outer gradient, it can be used to add a border with gradient color, if you specified outer padding
   final Gradient? outerGradient;
+  //outer border, it can be used to add a border
+  final BoxBorder? outerBorder;
 
   /// Auto dismiss the keyboard upon inputting the value for the last field. Default is [true]
   final bool autoDismissKeyboard;
@@ -222,6 +224,7 @@ class PinCodeTextField extends StatefulWidget {
     required this.length,
     this.controller,
     this.outerGradient,
+    this.outerBorder,
     this.obscureText = false,
     this.obscuringCharacter = '●',
     this.obscuringWidget,
@@ -913,7 +916,8 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 color: null,
                 boxShadow: null,
                 borderRadius: borderdecoration.borderRadius,
-                border: Border.all(style: BorderStyle.none)),
+                border:
+                    widget.outerBorder ?? Border.all(style: BorderStyle.none)),
             // padding: _pinTheme.fieldOuterPadding,
             padding: _pinTheme.fieldOuterPadding,
             child: Container(

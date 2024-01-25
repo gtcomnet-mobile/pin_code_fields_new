@@ -138,6 +138,9 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                     horizontal: 30,
                   ),
                   child: PinCodeTextField(
+                    outerBorder: Border(
+                      bottom: BorderSide(color: Colors.amberAccent, width: 4),
+                    ),
                     outerGradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
